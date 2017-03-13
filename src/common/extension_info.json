@@ -2,11 +2,11 @@
     "description": "Manage your DigitalOcean droplets.", 
     "creator": "DigitalOcean Toolbox", 
     "background_scripts": [
-    		"jquery-1.11.1.min.js",
+		"jquery-1.12.4.min.js",
         "main.js"
     ], 
     "homepage_url": "https://www.digitalocean.com/", 
-    "version": "1.0.1", 
+    "version": "2.0.0",
 		"options_page": "options.html",
 		"browser_button": {
 		  "caption": "DigitalOcean Toolbox",
