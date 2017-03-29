@@ -37,6 +37,8 @@ KangoAPI.onReady(function() {
 					{
 						var droplet_id = object.id;
 
+						object.ip4_address = object.networks.v4[0].ip_address;
+
 						object.region_name = object.region.name;
 						object.region_slug = object.region.slug;
 
