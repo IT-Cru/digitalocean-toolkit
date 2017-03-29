@@ -8,13 +8,18 @@ _gaq.push(['_trackPageview']);
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
-function trackButtonClick(e) {
+function trackClick(e) {
     _gaq.push(['_trackEvent', e.target.id, 'clicked']);
 }
 
 function prepareEventTracking() {
+    var tabs = document.body.querySelectorAll(".tab");
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].addEventListener('click', trackClick);
+    }
+
     var buttons = document.body.querySelectorAll("button");
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', trackButtonClick);
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', trackClick);
     }
 }
