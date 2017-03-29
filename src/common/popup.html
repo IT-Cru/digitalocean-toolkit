@@ -25,7 +25,8 @@
 	  <script type="text/javascript" src="kango-ui/kango_api.js"></script>
 	  <script type="text/javascript" src="jquery-1.12.4.min.js"></script>
 	  <script type="text/javascript" src="jsviews.min.js"></script>
-	  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>    
+	  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	  <script type="text/javascript" src="tracking.js"></script>
 	  <script type="text/javascript" src="popup.js"></script>
 </head>
 <body>
@@ -70,18 +71,18 @@
 					</tr>
 			  </tbody>
 			</table> 
-				<button type="button" class="btn btn-primary" id="do_open_panel_{{:id}}">Digital Ocean Panel <span class="glyphicon glyphicon-new-window"></span></button>
+				<button type="button" class="btn btn-primary" id="do_open_panel" data-do-object-id="{{:id}}">Digital Ocean Panel <span class="glyphicon glyphicon-new-window"></span></button>
 				{{if status == "active"}}
-					<button type="button" class="btn btn-warning" id="do_reboot_{{:id}}"><span class="glyphicon glyphicon-refresh"></span> Reboot</button>
-					<button type="button" class="btn btn-danger" id="do_shutdown_{{:id}}"><span class="glyphicon glyphicon-off"></span> Shutdown</button>
+					<button type="button" class="btn btn-warning" id="do_reboot" data-do-object-id="{{:id}}"><span class="glyphicon glyphicon-refresh"></span> Reboot</button>
+					<button type="button" class="btn btn-danger" id="do_shutdown" data-do-object-id="{{:id}}"><span class="glyphicon glyphicon-off"></span> Shutdown</button>
 	  		    {{else}}
-					<button type="button" class="btn btn-success" id="do_power_on_{{:id}}"><span class="glyphicon glyphicon-off"></span> Power ON</button>
+					<button type="button" class="btn btn-success" id="do_power_on" data-do-object-id="{{:id}}"><span class="glyphicon glyphicon-off"></span> Power ON</button>
 	  		    {{/if}}
 				{{if status == "active"}}
       		  		<hr>
 	  			    <p><span class="glyphicon glyphicon-warning-sign"></span> This actions may cause data corruption!</p>
-   					<button type="button" class="btn btn-danger" id="do_power_cycle_{{:id}}"><span class="glyphicon glyphicon-refresh"></span> Power CYCLE</button>
-					<button type="button" class="btn btn-danger" id="do_power_off_{{:id}}"><span class="glyphicon glyphicon-off"></span> Power OFF</button>
+   					<button type="button" class="btn btn-danger" id="do_power_cycle" data-do-object-id="{{:id}}"><span class="glyphicon glyphicon-refresh"></span> Power CYCLE</button>
+					<button type="button" class="btn btn-danger" id="do_power_off" data-do-object-id="{{:id}}"><span class="glyphicon glyphicon-off"></span> Power OFF</button>
 	  		    {{/if}}
 
 	  </div>

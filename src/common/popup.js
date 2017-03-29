@@ -75,6 +75,8 @@ KangoAPI.onReady(function() {
 						template2.link("#do_ul_"+object.id, object);
 					});
 
+
+
 					if (estimated_total_cost_per_month > 0)
 					{
 						$("#estimated_total_cost").html("$"+estimated_total_cost_per_month+" / mo");
@@ -86,12 +88,14 @@ KangoAPI.onReady(function() {
 
 					$('#do_droplets_ul a:first').tab('show');
 
-					$.each(info.droplets, function(row, object) 
+				    prepareEventTracking();
+
+				$.each(info.droplets, function(row, object)
 					{
-						$("#do_open_panel_"+object.id).click(function(){
+						$("#do_open_panel[data-do-object-id="+object.id+"]").click(function() {
 							kango.browser.tabs.create({url:'https://cloud.digitalocean.com/droplets/'+object.id});
 						});
-						$("#do_reboot_"+object.id).click(function(){
+						$("#do_reboot[data-do-object-id="+object.id+"]").click(function(){
 							if (confirm("Are you sure you wish to Reboot this droplet?"))
 							{
 								var details = {
@@ -111,7 +115,7 @@ KangoAPI.onReady(function() {
 								});
 							}
 						});
-						$("#do_power_cycle_"+object.id).click(function(){
+						$("#do_power_cycle[data-do-object-id="+object.id+"]").click(function(){
 							if (confirm("Are you sure you wish to power CYCLE this droplet?"))
 							{
 								var details = {
@@ -131,7 +135,7 @@ KangoAPI.onReady(function() {
 								});
 							}
 						});
-						$("#do_shutdown_"+object.id).click(function(){
+						$("#do_shutdown[data-do-object-id="+object.id+"]").click(function(){
 							if (confirm("Are you sure you wish to Shutdown this droplet?"))
 							{
 								var details = {
@@ -151,7 +155,7 @@ KangoAPI.onReady(function() {
 								});	
 							}
 						});
-						$("#do_power_off_"+object.id).click(function(){
+						$("#do_power_off[data-do-object-id="+object.id+"]").click(function(){
 							if (confirm("Are you sure you wish to Power OFF this droplet?"))
 							{
 								var details = {
@@ -171,7 +175,7 @@ KangoAPI.onReady(function() {
 								});
 							}
 						});
-						$("#do_power_on_"+object.id).click(function(){
+						$("#do_power_on[data-do-object-id="+object.id+"]").click(function(){
 							if (confirm("Are you sure you wish to Power ON this droplet?"))
 							{
 								var details = {

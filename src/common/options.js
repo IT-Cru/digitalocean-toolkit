@@ -1,5 +1,7 @@
 KangoAPI.onReady(function() {
 
+	prepareEventTracking();
+
 		if (kango.storage.getItem("do_manager_personal_access_token"))
 		{
 			$("#do_personal_access_token").val(kango.storage.getItem("do_manager_personal_access_token"));
