@@ -9,7 +9,7 @@ _gaq.push(['_trackPageview']);
 })();
 
 function trackClick(e) {
-    _gaq.push(['_trackEvent', e.target.id, 'clicked']);
+    _gaq.push(['_trackEvent', e.target.id, 'click']);
 }
 
 function prepareEventTracking() {
