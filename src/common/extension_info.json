@@ -2,11 +2,11 @@
     "description": "Manage your DigitalOcean droplets.", 
     "creator": "Steffen Schlaer",
     "background_scripts": [
-		"jquery-1.12.4.min.js",
+		"jquery-3.2.0.slim.min.js",
         "main.js"
     ], 
     "homepage_url": "http://it-cru.de/",
-    "version": "2.0.0",
+    "version": "2.0.1",
 		"options_page": "options.html",
 		"browser_button": {
 		  "caption": "DigitalOcean ToolKit",
