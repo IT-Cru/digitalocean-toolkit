@@ -28,14 +28,14 @@
 			  min-height: 100%;
 			  height: auto;
 			  /* Negative indent footer by its height */
-			  margin: 0 auto -60px;
+			  margin: 0 auto -100px;
 			  /* Pad bottom by footer height */
-			  padding: 0 0 60px;
+			  padding: 0 0 100px;
 			}
 
 			/* Set the fixed height of the footer here */
 			#footer {
-			  height: 60px;
+			  height: 100px;
 			  background-color: #f5f5f5;
 			}
 
@@ -50,6 +50,9 @@
 			.container .text-muted {
 			  margin: 20px 0;
 			}
+            .navbar-brand > img {
+              display: inherit;
+            }
 
 			#footer > .container {
 			  padding-left: 15px;
@@ -59,19 +62,18 @@
 			code {
 			  font-size: 80%;
 			}
-    </style>
 
-    <style type="text/css">
-    	.navbar-brand {
-    		padding: 5px;
-    		padding-right: 20px;
-    		color: #3686bb;
-    	}
+            .navbar-brand {
+                padding: 5px;
+                padding-right: 20px;
+                color: #3686bb;
+            }
     </style>
 
     <script type="text/javascript" src="kango-ui/kango_api.js"></script>
     <script type="text/javascript" src="jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>    
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="tracking.js"></script>
     <script type="text/javascript" src="options.js"></script>
 
   </head>
@@ -118,7 +120,7 @@
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="https://www.digitalocean.com/?refcode=1439b3e5bf3a" target="_blank"><img src="icons/digitalocean-logo-300.png" alt="DigitalOcean Logo" style="height: 52px;width: 52px;">&nbsp;DigitalOcean ToolKit</a>
+            <a class="navbar-brand" href="https://www.digitalocean.com/?refcode=1439b3e5bf3a" target="_blank">DigitalOcean ToolKit</a>
           </div>
         </div>
       </div>
@@ -132,10 +134,10 @@
 				<!-- Tab panes -->
 				<div class="tab-content">
 				  <div class="tab-pane active" id="options">
-				  	<p>Not a DigitalOcean member? <a href="https://www.digitalocean.com/?refcode=1439b3e5bf3a" target="_blank">Create your DigitalOcean account</a>.
+				  	<p>Not a DigitalOcean member? <a href="https://m.do.co/c/1439b3e5bf3a" target="_blank">Create your DigitalOcean account</a>.
 						<form class="form-horizontal" role="form">
 						  <div class="form-group">
-						    <label for="inputPassword3" class="col-sm-2 control-label">Personal access tokens</label>
+						    <label for="inputPassword3" class="col-sm-2 control-label">Personal access token</label>
 						    <div class="col-sm-10">
 						      <input type="password" class="form-control" id="do_personal_access_token" placeholder="[personal access token]">
 						      <p class="help-block">Get your personal access token for DigitalOcean API <a href="https://cloud.digitalocean.com/settings/api/tokens" target="_blank">here</a>.
@@ -153,7 +155,10 @@
     </div>
     <div id="footer">
       <div class="container">
-        <p class="text-muted">&copy; Copyright 2014 DigitalOcean ToolKit <a href="https://www.digitalocean.com/?refcode=1439b3e5bf3a" target="_blank">https://www.digitalocean.com/?refcode=1439b3e5bf3a</a></p>
+          <p class="small text-muted">
+              All brand names, product names, abbreviations and logos used on these pages are the property of the companies / groups concerned and are recognized as protected.
+          </p>
+          <p class="text-muted">&copy; Copyright 2017 by <a href="http://it-cru.de/?utm_source=do_toolkit&utm_medium=copyright" title="Click here to go to website of IT-Cru.de - Das IT-Gewächs" target="_blank">IT-Cru.de</a></p>
       </div>
     </div>
   </body>
