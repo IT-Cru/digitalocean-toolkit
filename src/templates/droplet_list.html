@@ -1,0 +1,26 @@
+<tr class="droplet" id="{{ :id }}">
+    <td class="name align-middle">
+        <div>{{ :name }}</div>
+        <div class="small text-muted">droplet.vcpus +  CPUs /  droplet.memory / 1024 +  GB /  droplet.disk +  GB Disk /  region.toString().toUpperCase()</div>
+    </td>
+    <td class="ip-address align-middle">droplet.networks.v4[0].ip_address</td>
+    <td class="created align-middle">moment(droplet.created_at).fromNow()</td>
+    <td class="tags align-middle">droplet.tags.join(", ")</td>
+    <td class="actions align-middle">
+        <div class="btn-group dropleft">
+            <button class="btn small" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-tools small"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item small" href="https://cloud.digitalocean.com/droplets/ droplet.id + " target="_blank">Open Dashboard</a>
+                <div class="dropdown-divider"></div>
+                <a class="droplet-reboot dropdown-item small" href="#" role="button" data-droplet-id=" droplet.id + "><i class="fas fa-sync"></i> Reboot</a>
+                <a class="dropdown-item small" href="#"><i class="fas fa-power-off"></i> Shutdown</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item small" href="#"><i class="fas fa-exclamation-triangle"></i> Power CYCLE</a>
+                <a class="dropdown-item small" href="#"><i class="fas fa-exclamation-triangle"></i> Power OFF</a>
+                <a class="dropdown-item small" href="#"><i class="fas fa-exclamation-triangle"></i> Power ON</a>
+            </div>
+        </div>
+    </td>
+</tr>

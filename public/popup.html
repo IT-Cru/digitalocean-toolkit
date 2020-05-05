@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DigitalOcean ToolKit">
+    <meta name="author" content="DigitalOcean ToolKit">
+    <link rel="shortcut icon" href="icons/icon48.png">
+    <style type="text/css">
+      body {
+        width: 768px;
+      }
+      .side-nav {
+        background-color: #031b4d;
+      }
+      .side-nav li a {
+        color: #fff;
+        width: 100%;
+      }
+      .side-nav li a.active {
+        background-color: rgba(250,250,250,.2);
+        font-weight: 700;
+      }
+      .side-nav li a:hover {
+        background-color: #0a1b3d
+      }
+      .side-nav li a.nav-header {
+        color: #677694;
+      }
+    </style>
+    <title>DigitalOcean ToolKit</title>
+    <script src="js/vendor.js"></script>
+  </head>
+  <body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="side-nav col-sm-2 col-md-2 col-lg-1 col-xl-1 px-0">
+        <nav class="navbar navbar-expand-sm px-0 flex-row flex-nowrap">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="sidebar">
+            <ul class="nav flex-sm-column flex-row">
+              <li class="nav-item">
+                <a class="nav-header nav-link" data-toggle="collapse" href="#manageMenu">Manage</a>
+                <div id="manageMenu" class="collapse show">
+                  <ul class="nav">
+                    <li class="nav-item">
+                      <a class="nav-link" id="droplets-tab" data-toggle="tab" role="tab" href="#droplets" aria-controls="droplets" aria-selected="true">Droplets</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Kubernetes</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Volumes</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Databases</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Spaces</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Images</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Networking</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-header nav-link" data-toggle="collapse" href="#accountMenu">Account</a>
+                <div id="accountMenu" class="collapse">
+                  <ul class="nav">
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#settings">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#billing">Billing</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-header nav-link" data-toggle="collapse" href="#appMenu">App</a>
+                <div id="appMenu" class="collapse">
+                  <ul class="nav">
+                    <li class="nav-item">
+                      <a class="nav-link" id="about-tab" data-toggle="tab" role="tab" href="#about" aria-controls="about" aria-selected="false">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="support-tab" data-toggle="tab" role="tab" href="#support" aria-controls="support" aria-selected="false">Support</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="debug-tab" data-toggle="tab" role="tab" href="#debug" aria-controls="debug" aria-selected="false">Debug</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="content col py-2">
+        <div class="alert-content" id="alertContent"></div>
+        <div class="tab-content" id="tabContent">
+          <div class="tab-pane fade" id="droplets" role="tabpanel" aria-labelledby="droplets-tab">
+            <h2>Droplets</h2>
+            <table class="table table-sm small">
+              <thead class="thead-light">
+              <tr>
+                <th>Name</th>
+                <th>IP Address</th>
+                <th>Created</th>
+                <th>Tags</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody id="tableDroplets">
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
+            <h2>About DigitalOcean Toolkit</h2>
+            <p>
+              With the DigitalOcean Toolkit browser extension it is currently possible to manage your droplets via APIv2 of DigitalOcean.
+            </p>
+            <h3>Initial development</h3>
+            <p>
+              Initial development was done by github user <a href="https://github.com/jasonswan" tagret="_blank">jasonswan</a> under project name <a href="https://github.com/jasonswan/digitalocean-toolbox" target="_blank">digitalocean-toolbox</a>. The old DigitalOcean Toolbox only supports APIv1.
+            </p>
+            <p class="small text-muted">
+              All brand names, product names, abbreviations and logos used on these pages are the property of the companies / groups concerned and are recognized as protected.
+            </p>
+            <p class="text-muted">&copy; Copyright 2020 by <a href="https://it-cru.de/?utm_source=do_toolkit&utm_medium=copyright" title="Click here to go to website of IT-Cru.de - Das IT-Gewächs" target="_blank">IT-Cru.de</a></p>
+          </div>
+
+          <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
+            <h2>Support DigitalOcean Toolkit</h2>
+            <p>
+              If you like this little browser extension and want more features you can support in different ways.
+            </p>
+            <ul>
+              <li>Use <a href="https://m.do.co/c/1439b3e5bf3a" target="_blank">DigitalOcean referral link</a> to create new DigitalOcean accounts.</li>
+              <li>Use <a href="https://paypal.me/ITCru" title="go to Paypal.me of IT-Cru" target="_blank">paypal.me</a> to donate a small amount for further development of DigitalOcean Toolkit.</li>
+              <li>Leave a positive rating or review in browser extension store.</li>
+              <li>Share this extension with other DigitalOcean users you know.</li>
+              <li>Blog about DigitalOcean Toolkit browser extension on your website.</li>
+            </ul>
+            <h3>Bug reports and feature request</h3>
+            <p>
+              Bug reports and feature request are handled on Github. Before you create a new issue please take a look in current issue queue.<br>
+              Current issues: <a href="https://github.com/IT-Cru/digitalocean-toolkit/issues" target="_blank">https://github.com/IT-Cru/digitalocean-toolkit/issues</a>
+            </p>
+            <p>
+              Please use following link to create a new bug report or feature request:<br>
+              Create new issue: <a href="https://github.com/IT-Cru/digitalocean-toolkit/issues/new" target="_blank">https://github.com/IT-Cru/digitalocean-toolkit/issues/new</a>
+            </p>
+          </div>
+
+          <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
+            <h2>Debug</h2>
+            <button id="countUp">count up</button>
+            <button id="countReset">count reset</button>
+          </div>
+
+          <div class="tab-pane fade" id="coming-soon" role="tabpanel" aria-labelledby="coming-soon-tab">
+            <h2>Coming soon to DigitalOcean Toolkit</h2>
+            <p>
+              This feature is not implemented yet.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="js/popup.js"></script>
+  </body>
+</html>

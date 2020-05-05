@@ -1,3 +1,9 @@
+.DS_Store
 .idea/
 output/*
 !output/.gitkeep
+
+npm-debug.log
+node_modules/
+dist/
+tmp/

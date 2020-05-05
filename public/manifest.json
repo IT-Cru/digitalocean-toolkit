@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+
+  "name": "DigitalOcean ToolKit",
+  "description": "Manage your DigitalOcean droplets",
+  "version": "2.1.0",
+
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+
+  "browser_action": {
+    "default_icon": "icons/button.png",
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+      {
+          "matches": ["<all_urls>"],
+          "js": ["js/vendor.js", "js/content_script.js"]
+      }
+  ],
+
+  "background": {
+    "scripts": ["js/vendor.js", "js/background.js"]
+  },
+
+  "permissions": [
+    "storage",
+    "https://api.digitalocean.com/*"
+  ],
+
+  "content_security_policy":  "script-src 'self' https://ssl.google-analytics.com 'unsafe-eval'; object-src 'self'"
+
+}
