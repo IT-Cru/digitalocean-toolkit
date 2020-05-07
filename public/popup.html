@@ -75,10 +75,10 @@
                 <div id="accountMenu" class="collapse">
                   <ul class="nav">
                     <li class="nav-item">
-                      <a class="nav-link disabled" href="#settings">Settings</a>
+                      <a class="nav-link" id="account-billing-tab" data-toggle="tab" role="tab" href="#account-billing" aria-controls="account-billing" aria-selected="false">Billing</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link disabled" href="#billing">Billing</a>
+                      <a class="nav-link" id="account-limits-tab" data-toggle="tab" role="tab" href="#account-limits" aria-controls="account-limits" aria-selected="false">Limits</a>
                     </li>
                   </ul>
                 </div>
@@ -107,7 +107,7 @@
         <div class="alert-content" id="alertContent"></div>
         <div class="tab-content" id="tabContent">
           <div class="tab-pane fade" id="droplets" role="tabpanel" aria-labelledby="droplets-tab">
-            <h2>Droplets</h2>
+            <h1>Droplets</h1>
             <table class="table table-sm small">
               <thead class="thead-light">
               <tr>
@@ -123,12 +123,46 @@
             </table>
           </div>
 
+          <div class="tab-pane fade show" id="account-billing" role="tabpanel" aria-labelledby="account-billing-tab">
+            <h1>Billing</h1>
+            <nav>
+              <div class="nav nav-tabs" id="billing-tab" role="tablist">
+                <a class="nav-item nav-link active" id="billing-balance-tab" data-toggle="tab" href="#billing-balance" role="tab" aria-controls="billing-balance" aria-selected="true">Balance</a>
+                <a class="nav-item nav-link" id="billing-history-tab" data-toggle="tab" href="#billing-history" role="tab" aria-controls="billing-history" aria-selected="false">History</a>
+              </div>
+            </nav>
+            <div class="tab-content mt-3" id="billing-tabContent">
+              <div class="tab-pane fade show active" id="billing-balance" role="tabpanel" aria-labelledby="billing-balance-tab">
+                Billing balance info
+              </div>
+              <div class="tab-pane fade" id="billing-history" role="tabpanel" aria-labelledby="billing-history-tab">
+                <table class="table table-sm small">
+                  <thead class="thead-light">
+                  <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody id="tableBillingHistory">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade show" id="account-limits" role="tabpanel" aria-labelledby="account-limits-tab">
+            <h1>Account limits</h1>
+            <div id="accountLimitsContainer"></div>
+          </div>
+
           <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
-            <h2>About DigitalOcean Toolkit</h2>
+            <h1>About DigitalOcean Toolkit</h1>
             <p>
               With the DigitalOcean Toolkit browser extension it is currently possible to manage your droplets via APIv2 of DigitalOcean.
             </p>
-            <h3>Initial development</h3>
+            <h2>Initial development</h2>
             <p>
               Initial development was done by github user <a href="https://github.com/jasonswan" tagret="_blank">jasonswan</a> under project name <a href="https://github.com/jasonswan/digitalocean-toolbox" target="_blank">digitalocean-toolbox</a>. The old DigitalOcean Toolbox only supports APIv1.
             </p>
@@ -139,7 +173,7 @@
           </div>
 
           <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
-            <h2>Support DigitalOcean Toolkit</h2>
+            <h1>Support DigitalOcean Toolkit</h1>
             <p>
               If you like this little browser extension and want more features you can support in different ways.
             </p>
@@ -150,7 +184,7 @@
               <li>Share this extension with other DigitalOcean users you know.</li>
               <li>Blog about DigitalOcean Toolkit browser extension on your website.</li>
             </ul>
-            <h3>Bug reports and feature request</h3>
+            <h2>Bug reports and feature request</h2>
             <p>
               Bug reports and feature request are handled on Github. Before you create a new issue please take a look in current issue queue.<br>
               Current issues: <a href="https://github.com/IT-Cru/digitalocean-toolkit/issues" target="_blank">https://github.com/IT-Cru/digitalocean-toolkit/issues</a>
@@ -162,13 +196,13 @@
           </div>
 
           <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
-            <h2>Debug</h2>
+            <h1>Debug</h1>
             <button id="countUp">count up</button>
             <button id="countReset">count reset</button>
           </div>
 
           <div class="tab-pane fade" id="coming-soon" role="tabpanel" aria-labelledby="coming-soon-tab">
-            <h2>Coming soon to DigitalOcean Toolkit</h2>
+            <h1>Coming soon to DigitalOcean Toolkit</h1>
             <p>
               This feature is not implemented yet.
             </p>

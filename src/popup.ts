@@ -4,7 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import * as jsrender from 'jsrender';
-import './droplets/droplets';
+import './manage/droplets';
+import './account/billing';
+import './account/limits';
 
 let count = 0;
 
