@@ -1,5 +1,5 @@
 import * as $ from 'jquery';
-//import * as moment from 'moment';
+import * as moment from 'moment';
 import {createApiClient} from "dots-wrapper";
 
 
@@ -45,14 +45,19 @@ $(function() {
 </tr>
     `;
 
-    const list = async () => {
+    const dropletsList = async () => {
         try {
             const input = {
-                per_page: 100, // number
+                per_page: 20, // number
             };
             const {data:{droplets}} = await dots.droplet.listDroplets(input);
 
-            // TODO: Get moment(droplet.created_at).fromNow() working.
+            // TODO: Rewrite to jsViews helper.
+            droplets.forEach(prepareDroplets);
+            function prepareDroplets(item) {
+                item.created_at = moment(item.created_at).fromNow();
+            }
+
             // TODO: Add region.toString().toUpperCase() from region = droplet.region["slug"].
             let dropletsTable = $('#tableDroplets');
             dropletsTable.empty();
@@ -68,7 +73,7 @@ $(function() {
         }
     };
 
-    const reboot = async (dropletID) => {
+    const dropletReboot = async (dropletID) => {
         try {
             const input = {
                 droplet_id: parseInt(dropletID),
@@ -88,14 +93,14 @@ $(function() {
     });
 
     $('#droplets-tab').on('click', function(){
-        list();
+        dropletsList();
     });
 
     $('.droplet-reboot').on('click', function(){
         console.log('CLICK REBOOT');
         let dropletID = parseInt($(this).data('droplet-id'));
         console.log(dropletID);
-        reboot(dropletID);
+        dropletReboot(dropletID);
     });
 
 });
