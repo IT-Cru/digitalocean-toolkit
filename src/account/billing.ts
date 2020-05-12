@@ -1,6 +1,6 @@
 import * as $ from 'jquery';
-import {createApiClient} from "dots-wrapper";
-import * as moment from "moment";
+import {createApiClient} from 'dots-wrapper';
+import * as moment from 'moment';
 
 $(function() {
 
@@ -8,7 +8,7 @@ $(function() {
 
     let htmlAlertMessage = `
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <strong>Command listDroplets failed!</strong> Please check you DigitalOcean API key. {{:error}}
+    <strong>{{:title}}</strong> {{:text}} {{:error}}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true"><i class="fas fa-times-circle"></i></span>
     </button>
@@ -42,10 +42,14 @@ $(function() {
             let nillingBalanceStatus = billingBallanceContent.render(balance);
             billingBallance.append(nillingBalanceStatus);
         } catch (error) {
-            let alertContent = $('#alertContent');
+            let messageContent = $('#messageContent');
             let alertMessage = $.templates(htmlAlertMessage);
-            let alertMessages = alertMessage.render({error: error});
-            alertContent.append(alertMessages);
+            let msg = {
+                title: 'Command getBalance failed!',
+                text: 'Please check you DigitalOcean API key.',
+                error: error
+            };
+            messageContent.append(alertMessage.render(msg));
         }
     };
 
@@ -80,10 +84,14 @@ $(function() {
             let billingHistoryRows = billingHistoryRow.render(billing_history);
             billingHistoryTable.append(billingHistoryRows);
         } catch (error) {
-            let alertContent = $('#alertContent');
+            let messageContent = $('#messageContent');
             let alertMessage = $.templates(htmlAlertMessage);
-            let alertMessages = alertMessage.render({error: error});
-            alertContent.append(alertMessages);
+            let msg = {
+                title: 'Command listBillingHistory failed!',
+                text: 'Please check you DigitalOcean API key.',
+                error: error
+            };
+            messageContent.append(alertMessage.render(msg));
         }
     };
 

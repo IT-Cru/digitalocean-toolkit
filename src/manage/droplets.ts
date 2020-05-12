@@ -9,7 +9,7 @@ $(function() {
 
     let htmlAlertMessage = `
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <strong>Command listDroplets failed!</strong> Please check you DigitalOcean API key. {{:error}}
+    <strong>{{:title}}</strong> {{:text}} {{:error}}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true"><i class="fas fa-times-circle"></i></span>
     </button>
@@ -68,10 +68,14 @@ $(function() {
             let dropletsRows = dropletRow.render(droplets);
             dropletsTable.append(dropletsRows);
         } catch (error) {
-            let alertContent = $('#alertContent');
+            let messageContent = $('#messageContent');
             let alertMessage = $.templates(htmlAlertMessage);
-            let alertMessages = alertMessage.render({error: error});
-            alertContent.append(alertMessages);
+            let msg = {
+                title: 'Command listDroplets failed!',
+                text: 'Please check you DigitalOcean API key.',
+                error: error
+            };
+            messageContent.append(alertMessage.render(msg));
         }
     };
 
@@ -83,10 +87,14 @@ $(function() {
             const {data:{action}} = await dots.droplet.rebootDroplet(input);
             console.log(action);
         } catch (error) {
-            let alertContent = $('#alertContent');
+            let messageContent = $('#messageContent');
             let alertMessage = $.templates(htmlAlertMessage);
-            let alertMessages = alertMessage.render({error: error});
-            alertContent.append(alertMessages);
+            let msg = {
+                title: 'Command rebootDroplet failed!',
+                text: 'Please check you DigitalOcean API key.',
+                error: error
+            };
+            messageContent.append(alertMessage.render(msg));
         }
     };
 
