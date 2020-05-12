@@ -24,11 +24,10 @@ $(function() {
 
     let htmlBillingHistory = `
 <tr class="billing-item">
-    <td class="date align-middle">{{:date}}</td>
-    <td class="description align-middle">{{:description}}</td>
-    <td class="amount align-middle">{{:amount}}</td>
-    <td class="actions align-middle">
-    </td>
+    <td class="date">{{:date}}</td>
+    <td class="description">{{:description}}</td>
+    <td class="amount text-right">{{:amount}}</td>
+    <td class="download text-right">{{:download}}</td>
 </tr>
     `;
 
@@ -58,9 +57,20 @@ $(function() {
             const {data:{billing_history}} = await dots.customer.listBillingHistory(input);
 
             // TODO: Rewrite to jsViews helper.
-            billing_history.forEach(prepareBillingHistroy);
-            function prepareBillingHistroy(item) {
+            billing_history.forEach(prepareBillingData);
+            function prepareBillingData(item) {
                 item.date = moment(item.date).format('MMM DD, YYYY');
+                if (item.amount < 0) {
+                    item.amount = '-$' + (item.amount * -1);
+                }
+                else {
+                    item.amount = '$' + item.amount;
+                }
+                item.download = '';
+                if (item.type == 'Invoice') {
+                    item.description = '<a href="https://cloud.digitalocean.com/account/billing/' + item.invoice_id + '" target="_blank">' + item.description + '</a>';
+                    item.download = 'Download: <a rel="noopener noreferrer" target="_blank" href="https://cloud.digitalocean.com/billing/' + item.invoice_id + '.pdf">PDF</a> • <a rel="noopener noreferrer" target="_blank" href="https://cloud.digitalocean.com/billing/' + item.invoice_id + '.csv">CSV</a>';
+                }
             }
 
             let billingHistoryTable = $('#tableBillingHistory');

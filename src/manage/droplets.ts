@@ -20,11 +20,11 @@ $(function() {
 <tr class="droplet" id="{{:id}}">
     <td class="name align-middle">
         <div>{{:name}}</div>
-        <div class="small text-muted">{{:vcpus}} CPUs / {{:memory}} MB Memory / {{:disk}} GB Disk</div>
+        <div class="small text-muted">{{:vcpus}} CPUs / {{:memory}} GB / {{:disk}} GB Disk</div>
     </td>
     <td class="ip-address align-middle">{{:networks.v4[0].ip_address}}</td>
     <td class="created align-middle">{{:created_at}}</td>
-    <td class="tags align-middle">{{:tags.join(", ")}}</td>
+    <td class="tags align-middle">{{:tags}}</td>
     <td class="actions align-middle">
         <div class="btn-group dropleft">
             <button class="btn small" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,9 +53,11 @@ $(function() {
             const {data:{droplets}} = await dots.droplet.listDroplets(input);
 
             // TODO: Rewrite to jsViews helper.
-            droplets.forEach(prepareDroplets);
-            function prepareDroplets(item) {
+            droplets.forEach(prepareDropletData);
+            function prepareDropletData(item) {
                 item.created_at = moment(item.created_at).fromNow();
+                item.memory = item.memory / 1024;
+                item.tags = item.tags.join(", ");
             }
 
             // TODO: Add region.toString().toUpperCase() from region = droplet.region["slug"].
