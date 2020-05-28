@@ -1,6 +1,7 @@
 import * as $ from 'jquery';
 import {createApiClient} from 'dots-wrapper';
 import * as moment from 'moment';
+import {tracking} from '../utils/tracking/tracking';
 
 let dots = undefined;
 
@@ -100,6 +101,7 @@ $(function() {
     });
 
     $('#account-billing-tab').on('click', function(){
+        tracking.pageview('/account/billing', {title: 'Billing'});
         getBillingBalance();
         getBillingHistory();
     });

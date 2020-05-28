@@ -1,5 +1,6 @@
 import * as $ from 'jquery';
 import {createApiClient} from "dots-wrapper";
+import {tracking} from '../utils/tracking/tracking';
 
 let dots = undefined;
 
@@ -48,6 +49,9 @@ $(function() {
         dots = createApiClient({token: obj['apiAccessToken']});
     });
 
-    $('#account-limits-tab').on('click', getAccountLimits);
+    $('#account-limits-tab').on('click', function(){
+        tracking.pageview('/account/limits', {title: 'Limits'});
+        getAccountLimits();
+    });
 
 });

@@ -1,4 +1,5 @@
 import * as $ from 'jquery';
+import {tracking} from './utils/tracking/tracking';
 
 // Saves options to chrome.storage.sync.
 function save_options() {
@@ -33,6 +34,8 @@ function restore_options() {
     $('#api_access_token').val(items.apiAccessToken);
   });
 }
+
+tracking.pageview('/options');
 
 $('#save').click(save_options);
 $(restore_options); // document.addEventListener('DOMContentLoaded', restore_options);

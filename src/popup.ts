@@ -7,11 +7,15 @@ import * as jsrender from 'jsrender';
 import './manage/droplets';
 import './account/billing';
 import './account/limits';
+import {tracking} from './utils/tracking/tracking';
 
 let count = 0;
 
 $(function() {
 
+  tracking.pageview('/');
+
+  // TODO: Find a better way to integrate jsRender.
   jsrender($);
 
   chrome.browserAction.setBadgeText({text: count.toString()});

@@ -1,6 +1,7 @@
 import * as $ from 'jquery';
 import * as moment from 'moment';
 import {createApiClient} from "dots-wrapper";
+import {tracking} from '../utils/tracking/tracking';
 
 let dots = undefined;
 
@@ -209,6 +210,9 @@ $(function() {
         dots = createApiClient({token: obj['apiAccessToken']});
     });
 
-    $('#droplets-tab').on('click', getDropletList);
+    $('#droplets-tab').on('click', function(){
+        tracking.pageview('/manage/droplets', {title: 'Droplets'});
+        getDropletList();
+    });
 
 });

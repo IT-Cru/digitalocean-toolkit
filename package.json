@@ -27,7 +27,8 @@
     "jsrender": "^1.0.6",
     "moment": "~2.24.0",
     "popper.js": "^1.16.1",
-    "save": "^2.4.0"
+    "save": "^2.4.0",
+    "universal-ga": "^1.2.0"
   },
   "devDependencies": {
     "@types/chrome": "0.0.100",
