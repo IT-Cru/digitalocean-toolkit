@@ -39,6 +39,7 @@ const getAccountLimits = async () => {
             text: 'Please check you DigitalOcean API key.',
             error: error
         };
+        tracking.exception(msg['title']);
         messageContent.append(alertMessage.render(msg));
     }
 };
@@ -50,7 +51,9 @@ $(function() {
     });
 
     $('#account-limits-tab').on('click', function(){
-        tracking.pageview('/account/limits', {title: 'Limits'});
+        tracking.set('page', '/account/limits');
+        tracking.set('title', 'Limits');
+        tracking.pageview();
         getAccountLimits();
     });
 

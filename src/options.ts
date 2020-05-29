@@ -28,7 +28,9 @@ function restore_options() {
   });
 }
 
-tracking.pageview('/options');
+tracking.set('page', '/options');
+tracking.set('title', 'Options');
+tracking.pageview();
 
 $('#save').on('click', save_options);
 $(restore_options); // document.addEventListener('DOMContentLoaded', restore_options);

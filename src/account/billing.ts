@@ -48,6 +48,7 @@ const getBillingBalance = async () => {
             text: 'Please check you DigitalOcean API key.',
             error: error
         };
+        tracking.exception(msg['title']);
         messageContent.append(alertMessage.render(msg));
     }
 };
@@ -90,6 +91,7 @@ const getBillingHistory = async () => {
             text: 'Please check you DigitalOcean API key.',
             error: error
         };
+        tracking.exception(msg['title']);
         messageContent.append(alertMessage.render(msg));
     }
 };
@@ -101,7 +103,9 @@ $(function() {
     });
 
     $('#account-billing-tab').on('click', function(){
-        tracking.pageview('/account/billing', {title: 'Billing'});
+        tracking.set('page', '/account/billing');
+        tracking.set('title', 'Billing');
+        tracking.pageview();
         getBillingBalance();
         getBillingHistory();
     });

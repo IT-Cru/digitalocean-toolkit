@@ -110,11 +110,13 @@ const getDropletList = async () => {
             text: 'Please check you DigitalOcean API key.',
             error: error
         };
+        tracking.exception(msg['title']);
         messageContent.append(alertMessage.render(msg));
     }
 };
 
 const powerCycleDroplet = async (dropletID) => {
+    tracking.event('Droplets', 'Click', { eventLabel: 'Power cycle droplet' });
     try {
         const input = {
             droplet_id: parseInt(dropletID),
@@ -128,11 +130,13 @@ const powerCycleDroplet = async (dropletID) => {
             text: 'Please check you DigitalOcean API key.',
             error: error
         };
+        tracking.exception(msg['title']);
         messageContent.append(alertMessage.render(msg));
     }
 };
 
 const powerOffDroplet = async (dropletID) => {
+    tracking.event('Droplets', 'Click', { eventLabel: 'Power off droplet' });
     try {
         const input = {
             droplet_id: parseInt(dropletID),
@@ -146,11 +150,13 @@ const powerOffDroplet = async (dropletID) => {
             text: 'Please check you DigitalOcean API key.',
             error: error
         };
+        tracking.exception(msg['title']);
         messageContent.append(alertMessage.render(msg));
     }
 };
 
 const powerOnDroplet = async (dropletID) => {
+    tracking.event('Droplets', 'Click', { eventLabel: 'Power on droplet' });
     try {
         const input = {
             droplet_id: parseInt(dropletID),
@@ -164,11 +170,13 @@ const powerOnDroplet = async (dropletID) => {
             text: 'Please check you DigitalOcean API key.',
             error: error
         };
+        tracking.exception(msg['title']);
         messageContent.append(alertMessage.render(msg));
     }
 };
 
 const rebootDroplet = async (dropletID) => {
+    tracking.event('Droplets', 'Click', { eventLabel: 'Reboot droplet' });
     try {
         const input = {
             droplet_id: parseInt(dropletID),
@@ -182,11 +190,13 @@ const rebootDroplet = async (dropletID) => {
             text: 'Please check you DigitalOcean API key.',
             error: error
         };
+        tracking.exception(msg['title']);
         messageContent.append(alertMessage.render(msg));
     }
 };
 
 const shutdownDroplet = async (dropletID) => {
+    tracking.event('Droplets', 'Click', { eventLabel: 'Shutdown droplet' });
     try {
         const input = {
             droplet_id: parseInt(dropletID),
@@ -200,6 +210,7 @@ const shutdownDroplet = async (dropletID) => {
             text: 'Please check you DigitalOcean API key.',
             error: error
         };
+        tracking.exception(msg['title']);
         messageContent.append(alertMessage.render(msg));
     }
 };
@@ -211,7 +222,9 @@ $(function() {
     });
 
     $('#droplets-tab').on('click', function(){
-        tracking.pageview('/manage/droplets', {title: 'Droplets'});
+        tracking.set('page', '/manage/droplets');
+        tracking.set('title', 'Droplets');
+        tracking.pageview();
         getDropletList();
     });
 
