@@ -34,12 +34,16 @@ const getBillingBalance = async () => {
     try {
         const {data:balance} = await dots.customer.getBalance();
 
-        let billingBallance = $('#billing-balance');
-        billingBallance.empty();
+        // TODO: Rewrite to jsViews helper.
+        balance.month_to_date_balance = '$' + (balance.month_to_date_balance * -1);
+        balance.month_to_date_usage = '$' + balance.month_to_date_usage;
 
-        let billingBallanceContent= $.templates(htmlBillingBalance);
-        let nillingBalanceStatus = billingBallanceContent.render(balance);
-        billingBallance.append(nillingBalanceStatus);
+        let billingBalance = $('#billing-balance');
+        billingBalance.empty();
+
+        let billingBalanceContent= $.templates(htmlBilingBalance);
+        let billingBalanceStatus = billingBalanceContent.render(balance);
+        billingBalance.append(billingBalanceStatus);
     } catch (error) {
         let messageContent = $('#messageContent');
         let alertMessage = $.templates(htmlAlertMessage);
