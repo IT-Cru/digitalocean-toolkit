@@ -41,7 +41,7 @@ const getBillingBalance = async () => {
         let billingBalance = $('#billing-balance');
         billingBalance.empty();
 
-        let billingBalanceContent= $.templates(htmlBilingBalance);
+        let billingBalanceContent= $.templates(htmlBillingBalance);
         let billingBalanceStatus = billingBalanceContent.render(balance);
         billingBalance.append(billingBalanceStatus);
     } catch (error) {
