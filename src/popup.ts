@@ -15,17 +15,15 @@ $(function() {
 
   tracking.pageview('/');
 
+  // Migrate old API key to new one.
+  chrome.storage.sync.get('do_manager_personal_access_token', function(obj) {
+    if (obj['do_manager_personal_access_token'] !== undefined) {
+      chrome.storage.sync.set({apiAccessToken: obj['do_manager_personal_access_token']});
+      chrome.storage.sync.remove('do_manager_personal_access_token');
+    }
+  });
+
   // TODO: Find a better way to integrate jsRender.
   jsrender($);
-
-  chrome.browserAction.setBadgeText({text: count.toString()});
-  $('#countUp').click(()=>{
-    chrome.browserAction.setBadgeText({text: (++count).toString()});
-  });
-
-  $('#countReset').click(()=>{
-    count = 0;
-    chrome.browserAction.setBadgeText({text: (count).toString()});
-  });
 
 });
