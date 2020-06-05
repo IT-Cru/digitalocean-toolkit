@@ -7,9 +7,9 @@ import * as jsrender from 'jsrender';
 import './manage/droplets';
 import './account/billing';
 import './account/limits';
+import {getAppAbout} from './app/about';
+import {getAppSupport} from './app/support';
 import {tracking} from './utils/tracking/tracking';
-
-let count = 0;
 
 $(function() {
 
@@ -25,5 +25,31 @@ $(function() {
 
   // TODO: Find a better way to integrate jsRender.
   jsrender($);
+
+  let aboutTab = $('#appAboutTab');
+  aboutTab.on('click', function(){
+    tracking.set('page', '/app/about');
+    tracking.set('title', 'About');
+    tracking.pageview();
+    getAppAbout();
+  });
+  $('#appSupportTab').on('click', function(){
+    tracking.set('page', '/app/support');
+    tracking.set('title', 'Support');
+    tracking.pageview();
+    getAppSupport();
+  });
+
+  $('.collapse').on('hide.bs.collapse', function () {
+    $('.submenu .active').removeClass('active');
+  });
+
+  getAppAbout();
+  (aboutTab as any).tab('show');
+
+  // $('#myTab a').on('click', function (e) {
+  //   e.preventDefault();
+  //   ($(this) as any).tab('show');
+  // });
 
 });

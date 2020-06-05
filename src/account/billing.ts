@@ -15,10 +15,15 @@ let htmlAlertMessage = `
 `;
 
 let htmlBillingBalance = `
-<h2>Remaining account credits</h2>
-<p>{{:month_to_date_balance}}</p>
-<h2>Estimated costs for this billing period</h2>
-<p>{{:month_to_date_usage}}</p>    
+<div class="border rounded-sm p-3 mb-3">
+  <h2>Remaining account credits</h2>
+  <p class="h1">{{:month_to_date_balance}}</p>
+</div>
+<div class="border rounded-sm p-3">
+  <h2>Estimated costs for this billing period</h2>
+  <p>This is the current costs for your usage this billing period.</p>
+  <p class="h1">{{:month_to_date_usage}}</p>
+</div>
 `;
 
 let htmlBillingHistory = `
@@ -38,7 +43,7 @@ const getBillingBalance = async () => {
         balance.month_to_date_balance = '$' + (balance.month_to_date_balance * -1);
         balance.month_to_date_usage = '$' + balance.month_to_date_usage;
 
-        let billingBalance = $('#billing-balance');
+        let billingBalance = $('#billingBalance');
         billingBalance.empty();
 
         let billingBalanceContent= $.templates(htmlBillingBalance);
@@ -106,7 +111,7 @@ $(function() {
         dots = createApiClient({token: obj['apiAccessToken']});
     });
 
-    $('#account-billing-tab').on('click', function(){
+    $('#accountBillingTab').on('click', function(){
         tracking.set('page', '/account/billing');
         tracking.set('title', 'Billing');
         tracking.pageview();

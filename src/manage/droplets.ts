@@ -23,7 +23,7 @@ let htmlDropletList = `
     <td class="ip-address align-middle">{{:networks.v4[0].ip_address}}</td>
     <td class="created align-middle">{{:created_at}}</td>
     <td class="tags align-middle">{{:tags}}</td>
-    <td class="actions align-middle">
+    <td class="actions text-right">
         <div class="btn-group dropleft">
             <button class="btn small" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-tools small"></i>
@@ -46,7 +46,7 @@ let htmlDropletList = `
 const getDropletList = async () => {
     try {
         const input = {
-            per_page: 20,
+            per_page: 8,
         };
         const {data:{droplets}} = await dots.droplet.listDroplets(input);
 
@@ -221,7 +221,7 @@ $(function() {
         dots = createApiClient({token: obj['apiAccessToken']});
     });
 
-    $('#droplets-tab').on('click', function(){
+    $('#manageDropletsTab').on('click', function(){
         tracking.set('page', '/manage/droplets');
         tracking.set('title', 'Droplets');
         tracking.pageview();

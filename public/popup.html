@@ -7,37 +7,108 @@
     <meta name="description" content="DigitalOcean ToolKit">
     <meta name="author" content="DigitalOcean ToolKit">
     <link rel="shortcut icon" href="icons/icon48.png">
+    <title>DigitalOcean ToolKit</title>
+    <script src="js/vendor.js"></script>
     <style type="text/css">
       body {
-        width: 768px;
+        width: 800px;
       }
       .logo {
         color: white;
+        padding: .75rem 1rem;
       }
-      .side-nav {
+      .sidebar {
         background-color: #031b4d;
+        min-height: 600px;
       }
-      .side-nav li a {
-        color: #fff;
+      .sidebar .menu-wrapper {
+        border-bottom: 1px solid rgba(180, 188, 199, 0.32);
         width: 100%;
       }
-      .side-nav li a.active {
+      .sidebar .menu-wrapper.last {
+        border-bottom: none;
+      }
+      .sidebar .nav-item {
+        width: 100%;
+      }
+      .sidebar .nav-item .nav-link {
+        color: #fff;
+        background-color: #031b4d;
+        border: none;
+      }
+      .sidebar .nav-item .nav-link.active {
         background-color: rgba(250,250,250,.2);
-        font-weight: 700;
       }
-      .side-nav li a:hover {
-        background-color: #0a1b3d
-      }
-      .side-nav li a.nav-header {
+      .sidebar .menu.nav-link {
         color: #677694;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      .sidebar .menu.nav-link::after {
+        content: "\f106";
+        font-family: "Font Awesome 5 Free", sans-serif;
+        font-weight: 900;
+        float: right;
+        margin-left: 10px;
+      }
+      .sidebar .menu.nav-link.collapsed::after {
+        content: "\f107";
+      }
+      .sidebar .submenu {
+        margin-top: 0;
+      }
+      .sidebar .submenu .nav-item .nav-link {
+        padding: .25rem 1rem;
+      }
+      .sidebar .submenu .nav-item .nav-link:hover {
+        background-color: #0a1b3d;
+      }
+      .sidebar .submenu .nav-item.last {
+        margin-bottom: .5rem;
       }
     </style>
-    <title>DigitalOcean ToolKit</title>
-    <script src="js/vendor.js"></script>
   </head>
   <body>
   <div class="container-fluid">
     <div class="row">
+      <div class="sidebar col-sm-2 col-md-2 col-lg-1 col-xl-1 pl-0 pr-0 collapse in show" id="sidebar">
+        <div class="logo"><i class="fab fa-digital-ocean"></i> ToolKit</div>
+        <ul class="nav" role="tablist">
+          <li class="menu-wrapper nav-item">
+            <a class="menu nav-link collapsed" data-toggle="collapse" href="#manageMenu" data-target="#manageMenu" aria-expanded="true" aria-controls="manageMenu">Manage</a>
+            <ul id="manageMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
+              <li class="nav-item last" data-parent="#manageMenu">
+                <a id="manageDropletsTab" class="nav-link" data-toggle="tab" data-target="#manageDroplets" role="tab" href="#manageDroplets">Droplets</a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu-wrapper nav-item">
+            <a class="menu nav-link collapsed" data-toggle="collapse" href="#accountMenu" data-target="#accountMenu" aria-expanded="true" aria-controls="accountMenu">Account</a>
+            <ul id="accountMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
+              <li class="nav-item" data-parent="#accountMenu">
+                <a id="accountBillingTab" class="nav-link" data-toggle="tab" data-target="#accountBilling" role="tab" href="#accountBilling">Billing</a>
+              </li>
+              <li class="nav-item last" data-parent="#accountMenu">
+                <a id="accountLimitsTab" class="nav-link" data-toggle="tab" data-target="#accountLimits" role="tab" href="#accountLimits">Limits</a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu-wrapper nav-item last">
+            <a class="menu nav-link collapsed" data-toggle="collapse" href="#appMenu" data-target="#appMenu" aria-expanded="true" aria-controls="appMenu">App</a>
+            <ul id="appMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
+              <li class="nav-item" data-parent="#appMenu">
+                <a id="appAboutTab" class="nav-link" data-toggle="tab" data-target="#appAbout" role="tab" href="#appAbout">About</a>
+              </li>
+              <li class="nav-item last" data-parent="#appMenu">
+                <a id="appSupportTab" class="nav-link" data-toggle="tab" data-target="#appSupport" role="tab" href="#appSupport">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+
+<!--
       <div class="side-nav col-sm-2 col-md-2 col-lg-1 col-xl-1 px-0">
         <div class="logo pt-3 pl-3"><i class="fab fa-digital-ocean"></i> ToolKit</div>
         <nav class="navbar navbar-expand-sm px-0 flex-row flex-nowrap">
@@ -45,75 +116,50 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="navbar-collapse collapse" id="sidebar">
-            <ul class="nav flex-sm-column flex-row">
+            <ul class="nav flex-sm-column flex-row" id="sidebarMenu">
               <li class="nav-item">
                 <a class="nav-header nav-link" data-toggle="collapse" href="#manageMenu">Manage</a>
-                <div id="manageMenu" class="collapse show">
-                  <ul class="nav">
-                    <li class="nav-item">
-                      <a class="nav-link" id="droplets-tab" data-toggle="tab" role="tab" href="#droplets" aria-controls="droplets" aria-selected="true">Droplets</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Kubernetes</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Volumes</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Databases</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Spaces</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Images</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" role="tab" href="#coming-soon" aria-controls="coming-soon" aria-selected="false">Networking</a>
-                    </li>
-                  </ul>
-                </div>
+                <ul class="nav collapse show" id="manageMenu">
+                  <li class="nav-item">
+                    <a class="nav-link" id="droplets-tab" data-toggle="tab" role="tab" href="#droplets" aria-controls="droplets" aria-selected="false">Droplets</a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-header nav-link" data-toggle="collapse" href="#accountMenu">Account</a>
-                <div id="accountMenu" class="collapse">
-                  <ul class="nav">
-                    <li class="nav-item">
-                      <a class="nav-link" id="account-billing-tab" data-toggle="tab" role="tab" href="#account-billing" aria-controls="account-billing" aria-selected="false">Billing</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="account-limits-tab" data-toggle="tab" role="tab" href="#account-limits" aria-controls="account-limits" aria-selected="false">Limits</a>
-                    </li>
-                  </ul>
-                </div>
+                <ul class="nav collapse" id="accountMenu">
+                  <li class="nav-item">
+                    <a class="nav-link" id="account-billing-tab" data-toggle="tab" role="tab" href="#account-billing" aria-controls="account-billing" aria-selected="false">Billing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="account-limits-tab" data-toggle="tab" role="tab" href="#account-limits" aria-controls="account-limits" aria-selected="false">Limits</a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-header nav-link" data-toggle="collapse" href="#appMenu">App</a>
-                <div id="appMenu" class="collapse">
-                  <ul class="nav">
-                    <li class="nav-item">
-                      <a class="nav-link" id="about-tab" data-toggle="tab" role="tab" href="#about" aria-controls="about" aria-selected="false">About</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="support-tab" data-toggle="tab" role="tab" href="#support" aria-controls="support" aria-selected="false">Support</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="debug-tab" data-toggle="tab" role="tab" href="#debug" aria-controls="debug" aria-selected="false">Debug</a>
-                    </li>
-                  </ul>
-                </div>
+                <ul class="nav collapse" id="appMenu">
+                  <li class="nav-item">
+                    <a class="nav-link" id="about-tab" data-toggle="tab" role="tab" href="#about" aria-controls="about" aria-selected="false">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="support-tab" data-toggle="tab" role="tab" href="#support" aria-controls="support" aria-selected="false">Support</a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
         </nav>
       </div>
+-->
       <div class="content col py-2">
         <div class="alert-content" id="messageContent"></div>
+
         <div class="tab-content" id="tabContent">
-          <div class="tab-pane fade" id="droplets" role="tabpanel" aria-labelledby="droplets-tab">
+          <div id="manageDroplets" class="tab-pane fade" role="tabpanel" aria-labelledby="manageDropletsTab">
             <h1>Droplets</h1>
-            <table class="table table-sm small">
-              <thead class="thead-light">
+            <table class="table table-sm">
+              <thead>
               <tr>
                 <th>Name</th>
                 <th>IP Address</th>
@@ -127,21 +173,20 @@
             </table>
           </div>
 
-          <div class="tab-pane fade show" id="account-billing" role="tabpanel" aria-labelledby="account-billing-tab">
+          <div id="accountBilling" class="tab-pane fade" role="tabpanel" aria-labelledby="accountBillingTab">
             <h1>Billing</h1>
             <nav>
               <div class="nav nav-tabs" id="billing-tab" role="tablist">
-                <a class="nav-item nav-link active" id="billing-balance-tab" data-toggle="tab" href="#billing-balance" role="tab" aria-controls="billing-balance" aria-selected="true">Balance</a>
-                <a class="nav-item nav-link" id="billing-history-tab" data-toggle="tab" href="#billing-history" role="tab" aria-controls="billing-history" aria-selected="false">History</a>
+                <a id="billingBalanceTab" class="nav-item nav-link active" data-toggle="tab" href="#billingBalance" role="tab" aria-controls="billingBalance" aria-selected="true">Balance</a>
+                <a id="billingHistoryTab" class="nav-item nav-link" data-toggle="tab" href="#billingHistory" role="tab" aria-controls="billingHistory" aria-selected="false">History</a>
               </div>
             </nav>
             <div class="tab-content mt-3" id="billing-tabContent">
-              <div class="tab-pane fade show active" id="billing-balance" role="tabpanel" aria-labelledby="billing-balance-tab">
-                Billing balance info
+              <div id="billingBalance" class="tab-pane fade show active" role="tabpanel" aria-labelledby="billingBalanceTab">
               </div>
-              <div class="tab-pane fade" id="billing-history" role="tabpanel" aria-labelledby="billing-history-tab">
-                <table class="table table-sm small">
-                  <thead class="thead-light">
+              <div id="billingHistory" class="tab-pane fade" role="tabpanel" aria-labelledby="billingHistoryTab">
+                <table class="table table-sm">
+                  <thead>
                   <tr>
                     <th>Date</th>
                     <th>Description</th>
@@ -156,60 +201,16 @@
             </div>
           </div>
 
-          <div class="tab-pane fade show" id="account-limits" role="tabpanel" aria-labelledby="account-limits-tab">
-            <h1>Account limits</h1>
+          <div id="accountLimits" class="tab-pane fade" role="tabpanel" aria-labelledby="accountLimitsTab">
             <div id="accountLimitsContainer"></div>
           </div>
 
-          <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
-            <h1>About DigitalOcean Toolkit</h1>
-            <p>
-              With the DigitalOcean Toolkit browser extension it is currently possible to manage your droplets via APIv2 of DigitalOcean.
-            </p>
-            <h2>Initial development</h2>
-            <p>
-              Initial development was done by github user <a href="https://github.com/jasonswan" tagret="_blank">jasonswan</a> under project name <a href="https://github.com/jasonswan/digitalocean-toolbox" target="_blank">digitalocean-toolbox</a>. The old DigitalOcean Toolbox only supports APIv1.
-            </p>
-            <p class="small text-muted">
-              All brand names, product names, abbreviations and logos used on these pages are the property of the companies / groups concerned and are recognized as protected.
-            </p>
-            <p class="text-muted">&copy; Copyright 2020 by <a href="https://it-cru.de/?utm_source=do_toolkit&utm_medium=copyright" title="Click here to go to website of IT-Cru.de - Das IT-Gewächs" target="_blank">IT-Cru.de</a></p>
+          <div id="appAbout" class="tab-pane fade" role="tabpanel" aria-labelledby="appAboutTab">
+            <div id="appAboutContainer"></div>
           </div>
 
-          <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
-            <h1>Support DigitalOcean Toolkit</h1>
-            <p>
-              If you like this little browser extension and want more features you can support in different ways.
-            </p>
-            <ul>
-              <li>Use <a href="https://m.do.co/c/1439b3e5bf3a" target="_blank">DigitalOcean referral link</a> to create new DigitalOcean accounts.</li>
-              <li>Use <a href="https://paypal.me/ITCru" title="go to Paypal.me of IT-Cru" target="_blank">paypal.me</a> to donate a small amount for further development of DigitalOcean Toolkit.</li>
-              <li>Leave a positive rating or review in browser extension store.</li>
-              <li>Share this extension with other DigitalOcean users you know.</li>
-              <li>Blog about DigitalOcean Toolkit browser extension on your website.</li>
-            </ul>
-            <h2>Bug reports and feature request</h2>
-            <p>
-              Bug reports and feature request are handled on Github. Before you create a new issue please take a look in current issue queue.<br>
-              Current issues: <a href="https://github.com/IT-Cru/digitalocean-toolkit/issues" target="_blank">https://github.com/IT-Cru/digitalocean-toolkit/issues</a>
-            </p>
-            <p>
-              Please use following link to create a new bug report or feature request:<br>
-              Create new issue: <a href="https://github.com/IT-Cru/digitalocean-toolkit/issues/new" target="_blank">https://github.com/IT-Cru/digitalocean-toolkit/issues/new</a>
-            </p>
-          </div>
-
-          <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
-            <h1>Debug</h1>
-            <button id="countUp">count up</button>
-            <button id="countReset">count reset</button>
-          </div>
-
-          <div class="tab-pane fade" id="coming-soon" role="tabpanel" aria-labelledby="coming-soon-tab">
-            <h1>Coming soon to DigitalOcean Toolkit</h1>
-            <p>
-              This feature is not implemented yet.
-            </p>
+          <div id="appSupport" class="tab-pane fade" role="tabpanel" aria-labelledby="appSupportTab">
+            <div id="appSupportContainer"></div>
           </div>
 
         </div>

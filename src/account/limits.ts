@@ -14,12 +14,16 @@ let htmlAlertMessage = `
 `;
 
 let htmlAccountLimits = `
-<h2>Droplet limit</h2>
-<p>{{:droplet_limit}}</p>
-<h2>Floating IP limit</h2>
-<p>{{:floating_ip_limit}}</p>    
-<h2>Volume limit</h2>
-<p>{{:volume_limit}}</p>    
+<h1>Account limits</h1>
+<div class="border rounded-sm p-3 mb-3">
+  <h2>Droplet limit: {{:droplet_limit}}</h2>
+</div>
+<div class="border rounded-sm p-3 mb-3">
+  <h2>Floating IP limit: {{:floating_ip_limit}}</h2>
+</div>
+<div class="border rounded-sm p-3">
+  <h2>Volume limit: {{:volume_limit}}</h2>
+</div>
 `;
 
 const getAccountLimits = async () => {
@@ -29,8 +33,8 @@ const getAccountLimits = async () => {
         accountLimitsContainer.empty();
 
         let accountLimitsContent= $.templates(htmlAccountLimits);
-        let nillingBalanceStatus = accountLimitsContent.render(account);
-        accountLimitsContainer.append(nillingBalanceStatus);
+        let billingBalanceStatus = accountLimitsContent.render(account);
+        accountLimitsContainer.append(billingBalanceStatus);
     } catch (error) {
         let messageContent = $('#messageContent');
         let alertMessage = $.templates(htmlAlertMessage);
@@ -50,7 +54,7 @@ $(function() {
         dots = createApiClient({token: obj['apiAccessToken']});
     });
 
-    $('#account-limits-tab').on('click', function(){
+    $('#accountLimitsTab').on('click', function(){
         tracking.set('page', '/account/limits');
         tracking.set('title', 'Limits');
         tracking.pageview();
