@@ -16,9 +16,10 @@ let htmlAlertMessage = `
 
 let htmlDropletList = `
 <tr class="droplet" id="{{:id}}">
+    <td class="align-middle"><span class="status {{:status}} border"></span></td>
     <td class="name align-middle">
         <div>{{:name}}</div>
-        <div class="small text-muted">{{:vcpus}} CPUs / {{:memory}} GB / {{:disk}} GB Disk</div>
+        <div class="small text-muted">{{:vcpus}} CPUs / {{:memory}} GB / {{:disk}} GB Disk / {{:datacenter}}</div>
     </td>
     <td class="ip-address align-middle">{{:networks.v4[0].ip_address}}</td>
     <td class="created align-middle">{{:created_at}}</td>
@@ -53,9 +54,11 @@ const getDropletList = async () => {
         // TODO: Rewrite to jsViews helper.
         droplets.forEach(prepareDropletData);
         function prepareDropletData(item) {
+            let region = item.region["slug"];
             item.created_at = moment(item.created_at).fromNow();
             item.memory = item.memory / 1024;
             item.tags = item.tags.join(", ");
+            item.datacenter = region.toString().toUpperCase();
         }
 
         // TODO: Add region.toString().toUpperCase() from region = droplet.region["slug"].

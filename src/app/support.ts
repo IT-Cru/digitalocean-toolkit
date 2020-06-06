@@ -5,7 +5,7 @@ let htmlAppSupport = `
 <p>If you like the DigitalOcean ToolKit browser extension and want more features you can support in different ways.</p>
 <ul>
   <li>Use my <a href="https://m.do.co/c/1439b3e5bf3a" target="_blank">DigitalOcean referral link</a> to create new DigitalOcean accounts.</li>
-  <li>Use <a href="https://paypal.me/ITCru" title="go to Paypal.me of IT-Cru" target="_blank">paypal.me</a> to donate a small amount for further development of DigitalOcean ToolKit.</li>
+  <li>Use <a href="https://paypal.me/ITCru" title="go to Paypal.me of IT-Cru" target="_blank">paypal.me</a> to donate for further development of DigitalOcean ToolKit.</li>
   <li>Leave a positive rating or review in browser extension store.</li>
   <li>Blog about the DigitalOcean ToolKit browser extension on your website.</li>
   <li>Share the DigitalOcean ToolKit extension with other DigitalOcean users you know.</li>

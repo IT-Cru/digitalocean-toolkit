@@ -13,7 +13,7 @@
       body {
         width: 800px;
       }
-      .logo {
+      .sidebar .navbar-brand {
         color: white;
         padding: .75rem 1rem;
       }
@@ -66,47 +66,61 @@
       .sidebar .submenu .nav-item.last {
         margin-bottom: .5rem;
       }
+      .status {
+        background-color: #dfdfdf;
+        border-radius: 50%;
+        display: inline-block;
+        height: 14px;
+        width: 14px;
+      }
+      .status.active {
+        background-color: #15cd72;
+      }
+      .status.off {
+        background-color: #ed4f32;
+      }
     </style>
   </head>
   <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="sidebar col-sm-2 col-md-2 col-lg-1 col-xl-1 pl-0 pr-0 collapse in show" id="sidebar">
-        <div class="logo"><i class="fab fa-digital-ocean"></i> ToolKit</div>
-        <ul class="nav" role="tablist">
-          <li class="menu-wrapper nav-item">
-            <a class="menu nav-link collapsed" data-toggle="collapse" href="#manageMenu" data-target="#manageMenu" aria-expanded="true" aria-controls="manageMenu">Manage</a>
-            <ul id="manageMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
-              <li class="nav-item last" data-parent="#manageMenu">
-                <a id="manageDropletsTab" class="nav-link" data-toggle="tab" data-target="#manageDroplets" role="tab" href="#manageDroplets">Droplets</a>
-              </li>
-            </ul>
-          </li>
-          <li class="menu-wrapper nav-item">
-            <a class="menu nav-link collapsed" data-toggle="collapse" href="#accountMenu" data-target="#accountMenu" aria-expanded="true" aria-controls="accountMenu">Account</a>
-            <ul id="accountMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
-              <li class="nav-item" data-parent="#accountMenu">
-                <a id="accountBillingTab" class="nav-link" data-toggle="tab" data-target="#accountBilling" role="tab" href="#accountBilling">Billing</a>
-              </li>
-              <li class="nav-item last" data-parent="#accountMenu">
-                <a id="accountLimitsTab" class="nav-link" data-toggle="tab" data-target="#accountLimits" role="tab" href="#accountLimits">Limits</a>
-              </li>
-            </ul>
-          </li>
-          <li class="menu-wrapper nav-item last">
-            <a class="menu nav-link collapsed" data-toggle="collapse" href="#appMenu" data-target="#appMenu" aria-expanded="true" aria-controls="appMenu">App</a>
-            <ul id="appMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
-              <li class="nav-item" data-parent="#appMenu">
-                <a id="appAboutTab" class="nav-link" data-toggle="tab" data-target="#appAbout" role="tab" href="#appAbout">About</a>
-              </li>
-              <li class="nav-item last" data-parent="#appMenu">
-                <a id="appSupportTab" class="nav-link" data-toggle="tab" data-target="#appSupport" role="tab" href="#appSupport">Support</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
+      <div id="sidebar" class="sidebar col-sm-2 col-md-2 col-lg-1 col-xl-1 pl-0 pr-0">
+        <nav class="navbar px-0">
+          <div class="navbar-brand"><i class="fab fa-digital-ocean"></i> ToolKit</div>
+          <ul class="nav" role="menu">
+            <li class="menu-wrapper nav-item">
+              <a class="menu nav-link collapsed" data-toggle="collapse" href="#manageMenu" data-target="#manageMenu" aria-expanded="true" aria-controls="manageMenu">Manage</a>
+              <ul id="manageMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
+                <li class="nav-item last" data-parent="#manageMenu">
+                  <a id="manageDropletsTab" class="nav-link" data-toggle="tab" data-target="#manageDroplets" role="tab" href="#manageDroplets">Droplets</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-wrapper nav-item">
+              <a class="menu nav-link collapsed" data-toggle="collapse" href="#accountMenu" data-target="#accountMenu" aria-expanded="true" aria-controls="accountMenu">Account</a>
+              <ul id="accountMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
+                <li class="nav-item" data-parent="#accountMenu">
+                  <a id="accountBillingTab" class="nav-link" data-toggle="tab" data-target="#accountBilling" role="tab" href="#accountBilling">Billing</a>
+                </li>
+                <li class="nav-item last" data-parent="#accountMenu">
+                  <a id="accountLimitsTab" class="nav-link" data-toggle="tab" data-target="#accountLimits" role="tab" href="#accountLimits">Limits</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-wrapper nav-item last">
+              <a class="menu nav-link collapsed" data-toggle="collapse" href="#appMenu" data-target="#appMenu" aria-expanded="true" aria-controls="appMenu">App</a>
+              <ul id="appMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
+                <li class="nav-item" data-parent="#appMenu">
+                  <a id="appAboutTab" class="nav-link" data-toggle="tab" data-target="#appAbout" role="tab" href="#appAbout">About</a>
+                </li>
+                <li class="nav-item last" data-parent="#appMenu">
+                  <a id="appSupportTab" class="nav-link" data-toggle="tab" data-target="#appSupport" role="tab" href="#appSupport">Support</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
       </div>
-
 
 <!--
       <div class="side-nav col-sm-2 col-md-2 col-lg-1 col-xl-1 px-0">
@@ -161,6 +175,7 @@
             <table class="table table-sm">
               <thead>
               <tr>
+                <th></th>
                 <th>Name</th>
                 <th>IP Address</th>
                 <th>Created</th>
