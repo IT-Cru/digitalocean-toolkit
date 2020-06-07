@@ -1,3 +1,6 @@
+2.1.2
+- remove activeTab permission from manifest.json
+
 2.1.1
 - add activeTab permission to manifest.json
 - fix typo on README
