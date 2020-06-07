@@ -4,6 +4,7 @@ output/*
 !output/.gitkeep
 
 npm-debug.log
+certificates/
 node_modules/
 dist/
 tmp/
