@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DigitalOcean ToolKit">
+    <meta name="author" content="DigitalOcean ToolKit">
+    <link rel="shortcut icon" href="icons/icon48.png">
+    <title>DigitalOcean ToolKit</title>
+    <script src="js/vendor.js"></script>
+  </head>
+  <body>
+  <div class="container-fluid">
+    <div class="row">
+      <div id="sidebar" class="sidebar col-sm-2 col-md-2 col-lg-1 col-xl-1 pl-0 pr-0">
+        <nav class="navbar px-0">
+          <div class="navbar-brand"><i class="fab fa-digital-ocean"></i> ToolKit</div>
+          <ul class="nav" role="menu">
+            <li class="menu-wrapper nav-item border-bottom border-primary">
+              <a class="menu nav-link collapsed" data-toggle="collapse" href="#manageMenu" data-target="#manageMenu" aria-expanded="true" aria-controls="manageMenu">Manage</a>
+              <ul id="manageMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
+                <li class="nav-item last" data-parent="#manageMenu">
+                  <a id="manageDropletsTab" class="nav-link" data-toggle="tab" data-target="#manageDroplets" role="tab" href="#manageDroplets">Droplets</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-wrapper nav-item border-bottom border-primary">
+              <a class="menu nav-link collapsed" data-toggle="collapse" href="#accountMenu" data-target="#accountMenu" aria-expanded="true" aria-controls="accountMenu">Account</a>
+              <ul id="accountMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
+                <li class="nav-item" data-parent="#accountMenu">
+                  <a id="accountBillingTab" class="nav-link" data-toggle="tab" data-target="#accountBilling" role="tab" href="#accountBilling">Billing</a>
+                </li>
+                <li class="nav-item last" data-parent="#accountMenu">
+                  <a id="accountLimitsTab" class="nav-link" data-toggle="tab" data-target="#accountLimits" role="tab" href="#accountLimits">Limits</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-wrapper nav-item last">
+              <a class="menu nav-link collapsed" data-toggle="collapse" href="#appMenu" data-target="#appMenu" aria-expanded="true" aria-controls="appMenu">App</a>
+              <ul id="appMenu" class="submenu nav collapse" data-parent="#sidebar" role="tablist">
+                <li class="nav-item" data-parent="#appMenu">
+                  <a id="appAboutTab" class="nav-link" data-toggle="tab" data-target="#appAbout" role="tab" href="#appAbout">About</a>
+                </li>
+                <li class="nav-item last" data-parent="#appMenu">
+                  <a id="appHelpTab" class="nav-link" data-toggle="tab" data-target="#appHelp" role="tab" href="#appHelp">Help</a>
+                </li>
+                <li class="nav-item last" data-parent="#appMenu">
+                  <a id="appSupportTab" class="nav-link" data-toggle="tab" data-target="#appSupport" role="tab" href="#appSupport">Support</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="content col py-2">
+        <div class="alert-content" id="messageContent"></div>
+
+        <div class="tab-content" id="tabContent">
+          <div id="manageDroplets" class="tab-pane fade" role="tabpanel" aria-labelledby="manageDropletsTab">
+            <h1>Droplets</h1>
+            <div class="card">
+              <table class="table table-sm">
+                <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>IP Address</th>
+                  <th>Created</th>
+                  <th>Tags</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody id="tableDroplets">
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="accountBilling" class="tab-pane fade" role="tabpanel" aria-labelledby="accountBillingTab">
+            <h1>Billing</h1>
+            <nav>
+              <div class="nav nav-tabs" id="billing-tab" role="tablist">
+                <a id="billingBalanceTab" class="nav-item nav-link active" data-toggle="tab" href="#billingBalance" role="tab" aria-controls="billingBalance" aria-selected="true">Balance</a>
+                <a id="billingHistoryTab" class="nav-item nav-link" data-toggle="tab" href="#billingHistory" role="tab" aria-controls="billingHistory" aria-selected="false">History</a>
+              </div>
+            </nav>
+            <div class="tab-content mt-3" id="billing-tabContent">
+              <div id="billingBalance" class="tab-pane fade show active" role="tabpanel" aria-labelledby="billingBalanceTab">
+              </div>
+              <div id="billingHistory" class="tab-pane fade" role="tabpanel" aria-labelledby="billingHistoryTab">
+                <div class="card">
+                  <table class="table table-hover table-sm">
+                    <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Description</th>
+                      <th class="text-right">Amount</th>
+                      <th class="text-right">Download</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tableBillingHistory">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="accountLimits" class="tab-pane fade" role="tabpanel" aria-labelledby="accountLimitsTab">
+            <div id="accountLimitsContainer"></div>
+          </div>
+
+          <div id="appAbout" class="tab-pane fade" role="tabpanel" aria-labelledby="appAboutTab">
+            <div id="appAboutContainer"></div>
+          </div>
+
+          <div id="appHelp" class="tab-pane fade" role="tabpanel" aria-labelledby="appHelpTab">
+            <div id="appHelpContainer"></div>
+          </div>
+
+          <div id="appSupport" class="tab-pane fade" role="tabpanel" aria-labelledby="appSupportTab">
+            <div id="appSupportContainer"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="js/popup.js"></script>
+  </body>
+</html>
