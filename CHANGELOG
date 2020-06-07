@@ -1,3 +1,7 @@
+2.1.1
+- add activeTab permission to manifest.json
+- fix typo on README
+
 2.1.0
 - Refactor extension to TypeScript and use dots library
 - Add billing balance and history

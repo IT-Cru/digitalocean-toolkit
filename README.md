@@ -19,14 +19,14 @@ More features are in planning. Please visit support page to get more information
 
 ## Help
 
-### Create DigitalOcean acount
+### Create DigitalOcean account
 
 To use DigitalOcean ToolKit browser extension you need a DigitalOcean account. If you already have an account, you can directly go to next step "Prepare ToolKit...".
 
 1.  Create your own DigitalOcean account.
 2.  Verify your new created account.
 
-Get your own DigitalOcean account [here](https://m.do.co/c/1439b3e5bf3a).
+Get your own DigitalOcean account with $100 free credits [here](https://m.do.co/c/1439b3e5bf3a).
 
 ### Prepare ToolKit for using DigitalOcean API
 
