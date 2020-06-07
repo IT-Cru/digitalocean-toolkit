@@ -1,0 +1,51 @@
+{
+  "name": "digitalocean-toolkit",
+  "version": "2.0.0",
+  "description": "DigitalOcean ToolKit is a Browser Extension that allows you to monitor and manage all your droplets.",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack --config webpack/webpack.dev.js --watch",
+    "build": "webpack --config webpack/webpack.prod.js",
+    "clean": "rimraf dist",
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IT-Cru/digitalocean-toolkit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IT-Cru/digitalocean-toolkit/issues"
+  },
+  "homepage": "https://github.com/IT-Cru/digitalocean-toolkit#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "bootstrap": "^4.5.0",
+    "dots-wrapper": "^3.2.0",
+    "jquery": "^3.5.1",
+    "jsrender": "^1.0.6",
+    "moment": "~2.24.0",
+    "popper.js": "^1.16.1",
+    "save": "^2.4.0",
+    "universal-ga": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.100",
+    "@types/jest": "^25.2.3",
+    "@types/jquery": "^3.3.38",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.1.0",
+    "jest": "^25.5.4",
+    "rimraf": "^3.0.2 ",
+    "style-loader": "^1.2.1",
+    "ts-jest": "^25.5.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "~3.8.3 ",
+    "webpack": "~4.42.0",
+    "webpack-cli": "~3.3.11",
+    "webpack-merge": "~4.2.2"
+  }
+}
