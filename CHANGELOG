@@ -1,3 +1,9 @@
+2.1.0
+- Refactor extension to TypeScript and use dots library
+- Add billing balance and history
+- Switch to Bootstrap 4 and refresh design
+- Move repo from Bitbucket to GitHub
+
 2.0.1
 - Switch jQuery from 1.12.4 to 3.2.0
 
