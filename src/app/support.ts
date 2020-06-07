@@ -10,8 +10,8 @@ let htmlAppSupport = `
   <li>Blog about the DigitalOcean ToolKit browser extension on your website.</li>
   <li>Share the DigitalOcean ToolKit extension with other DigitalOcean users you know.</li>
 </ul>
-<h2>Bug reports and feature request</h2>
-<p>Bug reports and feature request are handled on Github. Before you create a new issue please take a look in current issue queue.<br>
+<h2>Bug reports and feature requests</h2>
+<p>Bug reports and feature requests are handled on Github. Before you create a new issue please take a look in current issue queue.<br>
 Current issues: <a href="https://github.com/IT-Cru/digitalocean-toolkit/issues" target="_blank">https://github.com/IT-Cru/digitalocean-toolkit/issues</a></p>
 <p>Please use following link to create a new bug report or feature request:<br>
 Create new issue: <a href="https://github.com/IT-Cru/digitalocean-toolkit/issues/new" target="_blank">https://github.com/IT-Cru/digitalocean-toolkit/issues/new</a></p>

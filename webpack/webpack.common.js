@@ -6,9 +6,7 @@ const srcDir = '../src/';
 module.exports = {
     entry: {
         popup: path.join(__dirname, srcDir + 'popup.ts'),
-        options: path.join(__dirname, srcDir + 'options.ts'),
-        background: path.join(__dirname, srcDir + 'background.ts'),
-        content_script: path.join(__dirname, srcDir + 'content_script.ts')
+        options: path.join(__dirname, srcDir + 'options.ts')
     },
     output: {
         path: path.join(__dirname, '../dist/js'),
@@ -36,7 +34,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'fonts/'
+                            outputPath: '../fonts/'
                         }
                     }
                 ]

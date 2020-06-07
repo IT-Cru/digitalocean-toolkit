@@ -2,7 +2,8 @@
   "manifest_version": 2,
 
   "name": "DigitalOcean ToolKit",
-  "description": "Manage your DigitalOcean droplets",
+  "short_name": "doToolKit",
+  "description": "With the DigitalOcean ToolKit browser extension it is possible to manage your DigitalOcean resources via APIv2 of DigitalOcean.",
   "version": "2.1.0",
 
   "options_ui": {
@@ -11,24 +12,28 @@
   },
 
   "browser_action": {
-    "default_icon": "icons/button.png",
+    "default_icon": "icons/icon32.png",
     "default_popup": "popup.html"
   },
 
   "content_scripts": [
       {
-          "matches": ["<all_urls>"],
-          "js": ["js/vendor.js", "js/content_script.js"]
+        "matches": ["<all_urls>"],
+        "js": [
+          "js/vendor.js"
+        ]
       }
   ],
 
-  "background": {
-    "scripts": ["js/vendor.js", "js/background.js"]
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
 
   "permissions": [
     "storage",
-    "https://api.digitalocean.com/*"
+    "https://api.digitalocean.com/*",
+    "https://cloud.digitalocean.com/*"
   ],
 
   "content_security_policy":  "script-src 'self' https://www.google-analytics.com 'unsafe-eval'; object-src 'self'"

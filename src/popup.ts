@@ -3,11 +3,13 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '@fortawesome/fontawesome-free/js/all.js';
+import './css/app.css';
 import * as jsrender from 'jsrender';
 import './manage/droplets';
 import './account/billing';
 import './account/limits';
 import {getAppAbout} from './app/about';
+import {getAppHelp} from "./app/help";
 import {getAppSupport} from './app/support';
 import {tracking} from './utils/tracking/tracking';
 
@@ -33,6 +35,12 @@ $(function() {
     tracking.pageview();
     getAppAbout();
   });
+  $('#appHelpTab').on('click', function(){
+    tracking.set('page', '/app/help');
+    tracking.set('title', 'Help');
+    tracking.pageview();
+    getAppHelp();
+  });
   $('#appSupportTab').on('click', function(){
     tracking.set('page', '/app/support');
     tracking.set('title', 'Support');
@@ -46,10 +54,5 @@ $(function() {
 
   getAppAbout();
   (aboutTab as any).tab('show');
-
-  // $('#myTab a').on('click', function (e) {
-  //   e.preventDefault();
-  //   ($(this) as any).tab('show');
-  // });
 
 });
