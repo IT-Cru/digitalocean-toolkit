@@ -15,11 +15,11 @@ let htmlAlertMessage = `
 `;
 
 let htmlBillingBalance = `
-<div class="border rounded-sm p-3 mb-3">
+<div class="card p-3 mb-3">
   <h2>Remaining account credits</h2>
   <p class="h1">{{:month_to_date_balance}}</p>
 </div>
-<div class="border rounded-sm p-3">
+<div class="card p-3">
   <h2>Estimated costs for this billing period</h2>
   <p>This is the current costs for your usage this billing period.</p>
   <p class="h1">{{:month_to_date_usage}}</p>

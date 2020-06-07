@@ -15,13 +15,13 @@ let htmlAlertMessage = `
 
 let htmlAccountLimits = `
 <h1>Account limits</h1>
-<div class="border rounded-sm p-3 mb-3">
+<div class="card p-3 mb-3">
   <h2>Droplet limit: {{:droplet_limit}}</h2>
 </div>
-<div class="border rounded-sm p-3 mb-3">
+<div class="card p-3 mb-3">
   <h2>Floating IP limit: {{:floating_ip_limit}}</h2>
 </div>
-<div class="border rounded-sm p-3">
+<div class="card p-3">
   <h2>Volume limit: {{:volume_limit}}</h2>
 </div>
 `;
