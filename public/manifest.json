@@ -4,7 +4,7 @@
   "name": "DigitalOcean ToolKit",
   "short_name": "doToolKit",
   "description": "With the DigitalOcean ToolKit browser extension it is possible to manage your DigitalOcean resources via APIv2 of DigitalOcean.",
-  "version": "2.1.2",
+  "version": "2.1.3",
 
   "options_ui": {
     "page": "options.html",
