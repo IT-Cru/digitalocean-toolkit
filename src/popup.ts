@@ -6,7 +6,8 @@ import '@fortawesome/fontawesome-free/js/all.js';
 import './css/app.css';
 import * as jsrender from 'jsrender';
 import './manage/droplets';
-import './account/billing';
+import {getBillingBalance} from "./account/billing";
+import {getBillingHistory} from "./account/billing";
 import './account/limits';
 import {getAppAbout} from './app/about';
 import {getAppHelp} from "./app/help";
@@ -14,6 +15,18 @@ import {getAppSupport} from './app/support';
 import {tracking} from './utils/tracking/tracking';
 
 $(function() {
+
+  let apiAccessToken = undefined;
+
+  function getAccessToken() {
+    chrome.storage.sync.get('apiAccessToken', storageData => {
+      apiAccessToken = storageData
+    });
+  }
+
+  console.log(apiAccessToken);
+  getAccessToken();
+  console.log(apiAccessToken);
 
   tracking.pageview('/');
 
@@ -29,6 +42,12 @@ $(function() {
   jsrender($);
 
   let aboutTab = $('#appAboutTab');
+  $('#accountBillingTab').on('click', function(){
+    tracking.set('page', '/account/billing');
+    tracking.set('title', 'Billing');
+    tracking.pageview();
+    getBillingHistory();
+  });
   aboutTab.on('click', function(){
     tracking.set('page', '/app/about');
     tracking.set('title', 'About');
@@ -50,9 +69,13 @@ $(function() {
 
   $('.collapse').on('hide.bs.collapse', function () {
     $('.submenu .active').removeClass('active');
+    $('#accountUsage.active').removeClass('active');
   });
 
-  getAppAbout();
-  (aboutTab as any).tab('show');
+  $(function() {
+    getBillingBalance();
+    getAppAbout();
+    (aboutTab as any).tab('show');
+  });
 
 });
