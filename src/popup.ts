@@ -18,10 +18,10 @@ $(function() {
   tracking.pageview('/');
 
   // Migrate old API key to new one.
-  chrome.storage.sync.get('do_manager_personal_access_token', function(obj) {
+  chrome.storage.local.get('do_manager_personal_access_token', function(obj) {
     if (obj['do_manager_personal_access_token'] !== undefined) {
       chrome.storage.sync.set({apiAccessToken: obj['do_manager_personal_access_token']});
-      chrome.storage.sync.remove('do_manager_personal_access_token');
+      chrome.storage.local.remove('do_manager_personal_access_token');
     }
   });
 
